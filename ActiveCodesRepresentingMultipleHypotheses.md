@@ -2,7 +2,7 @@
 
 A Sparsey the mac is the canonical memory module. It consists of $Q$ WTA CMs, each consisting of $K$ binary units ("cells").  Fig. 1 shows a mac with $Q=7$ CMs, each with $K=6$. Every code that ever becomes active in that mac will consist of exactly $Q$ active cells, one per CM.
 
-![Tiny 2-level Sparsey model](tiny_2lev_model.png)
+![Tiny 2-level Sparsey model](tiny_2level_model.png)
 
 In learning mode, when a novel input, X, is presented to the mac, a code, $&phi;(X)$, will be chosen and **all** active afferent synapses to those $Q$ cells will be increased.  All $Q$ of $&phi;(X)$'s cells, i.e., a "cell assembly", **simultaneously** learn (store) X.  This is an essential point and I've rarely seen it mentioned in discussions of cells assemblies. Heretofore, most discussions of cell assemblies have focused on the learning that occurs between/amongst the cells comprising the cell assembly, not on the learning that occurs from the cells afferent (upstream) and efferent (downstream) to the cell assembly. Furthermore, in Sparsey, all cells of a mac, have exactly the same: a) **receptive field (RF)**, i.e., set of afferent cells, also called an "inset"; and b) **projective field (PF)**, i.e., set of efferent cells, also called an "outset".  And recall that in Sparsey, 
 1. all synaptic weights are initially zero, i.e., "naive", and
