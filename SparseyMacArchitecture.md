@@ -4,9 +4,11 @@ In Sparsey, the **mac** is the core processing module. It consists of $Q$ winner
 
 ![Tiny 2-level Sparsey model](tiny_2level_model.png)
 
-Fig. 2 shows that, in general, an overall Sparsey model instance is hierarchical graph where the graph nodes, call *regions", are 2D arrays of macs. In general, any given mac will receive inputs from: 
-a) lower regions in the hierarchy ("U" inputs), which may be input regions (arrays of binary pixels: these input arrays can be of arbitrary dimension, though in these figures, they are all 2D because they represent visual inputs) or 2D arrays of macs; 
-b) regions at the same level (horizontal, or "H, inputs), including from itself; 
-c) higher-level regions (top-down, or "D", inputs). 
+Fig. 2 shows that, in general, an overall Sparsey model instance is hierarchical graph where the graph nodes, call **regions**, are 2D arrays of macs. In general, any given mac will receive inputs (*afferent* synaptic matrices) from: 
+1. lower regions in the hierarchy (**"U"** inputs), which may be input regions (arrays of binary features: these input arrays can be of arbitrary dimension, though in these figures, they are all 2D because they represent visual inputs, and so these binary features are also referred to as binary *pixels*) or 2D arrays of macs; 
+2. regions at the same level (horizontal, or **"H"**, inputs), including from the mac's own region and including from the mac itself (i.e., a *recurrent* input matrix); 
+3. higher-level regions (top-down, or **"D"**, inputs). 
 
-We refer to the set of cells comprising a mac's input as its **receptive field** (RF), which can be partitioned into its U, H, and D, components, referred to as **U-RF**, **H-RF**, and **D-RF**. The connectivity rule is that all cells of a mac have exactly the same RF, thus exactly the same U-RF, H-RF, and D-RF. In general, the RFs of neighboring macs in a region will have overlapping (intersecting) RFs, as shown in Fig. 2.  We present Fig. 2 here only to provide the reader a glimpse of Sparsey's larger-scale operational context, whose policies / dynamics (rules) are described elsewhere.  The goal of this page is to describe the dynamics that occur within, i.e., at the scale of, a single mac.
+We refer to the set of cells comprising a mac's input as its **receptive field** (**RF**), which can be partitioned into its U, H, and D, components, referred to as **U-RF**, **H-RF**, and **D-RF**.  If the source region of any of a mac's component RFs is an *internal* region, i.e., one composed of macs (as opposed to an input region, which is composed of binary features), then that component RF will be consist of a set of whole macs, i.e., the union of all cells in that set of macs.  The connectivity rule is that all cells of a mac have exactly the same RF, thus exactly the same U-RF, H-RF, and D-RF. In general, the RFs of neighboring macs in a region will have overlapping (intersecting) RFs, as shown in Fig. 2.  We present Fig. 2 here only to provide the reader a glimpse of Sparsey's larger-scale architectural context, whose operational policies / dynamics (rules) are described elsewhere.  The goal of this page is just to describe the dynamics that occur within, i.e., at the scale of, a single mac.
+
+
